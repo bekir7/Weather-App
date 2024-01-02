@@ -7,7 +7,7 @@ import '../models/weatherModel.dart';
 
 class WeatherService {
   static const BASE_URL =
-      'http://api.openweathermap.org/data/2.5/weather?q=Konya,tr&APPID=e4607eb03ccc521911f8c75f7029e69e';
+      'http://api.openweathermap.org/data/2.5/weather?lat=38.16&lon=32.5&exclude=hourly,daily';
   final String apiKey;
 
   WeatherService({required this.apiKey});
