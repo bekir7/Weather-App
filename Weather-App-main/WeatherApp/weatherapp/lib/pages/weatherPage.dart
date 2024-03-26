@@ -43,6 +43,8 @@ class _WeatherPageState extends State<WeatherPage> {
       case 'drizzle':
       case 'shower rain':
         return 'assets/rainy.json';
+      case 'snow':
+        return 'assets/snow.json';
       case 'thunderstorm':
         return 'assets/storm.json';
       case 'clear':
@@ -69,7 +71,8 @@ class _WeatherPageState extends State<WeatherPage> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color.fromARGB(255, 90, 174, 230),
+                //color: Color.fromARGB(255, 90, 174, 230),
+                //color: Colors.grey.shade600
               ),
               padding: EdgeInsets.only(bottom: 50),
               child: Column(
@@ -88,103 +91,99 @@ class _WeatherPageState extends State<WeatherPage> {
                     _weather?.mainCondition ?? "",
                     style: GoogleFonts.lato(fontSize: 22),
                   ),
-                  Padding(
-                    //padding: EdgeInsets.only(top: 90),
-                    padding: EdgeInsets.symmetric(vertical: 35, horizontal: 30),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(90),
-                        color: Color.fromARGB(255, 90, 230, 144),
-                      ),
-                      padding: EdgeInsets.all(15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(3.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white),
-                              padding: EdgeInsets.all(10.0),
-                              child: Icon(
-                                Icons.water_drop,
-                                color: const Color.fromARGB(255, 0, 38, 253),
-                              ),
+                  Row(children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 50, horizontal: 60),
+                      child: Container(
+                        padding: EdgeInsets.only(top: 15),
+                        width: 100,
+                        height: 130,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Color.fromARGB(255, 90, 197, 230),
+                        ),
+                        child: Column(
+                          children: [
+                            Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.white),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Icon(
+                                      Icons.water_drop,
+                                      color:
+                                          const Color.fromARGB(255, 0, 38, 253),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(3.0),
-                            child: Text("Nem",
+                            Text("Nem",
                                 style: GoogleFonts.lato(
-                                  fontSize: 25,
+                                  fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   color: Color.fromARGB(255, 255, 255, 255),
                                 )),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(3.0),
-                            child: Text(
+                            Text(
                               "${_weather?.humidity}%",
                               style: GoogleFonts.lato(
-                                fontSize: 30,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromARGB(255, 255, 255, 255),
                               ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 30),
-                    child: Container(
+                    Container(
+                      padding: EdgeInsets.only(top: 15),
+                      width: 100,
+                      height: 130,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(90),
-                        color: Color.fromARGB(255, 90, 230, 144),
+                        borderRadius: BorderRadius.circular(30),
+                        color: Color.fromARGB(255, 90, 197, 230),
                       ),
-                      padding: EdgeInsets.all(15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Column(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.all(3.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white),
-                              padding: EdgeInsets.all(10.0),
-                              child: Icon(
-                                Icons.wind_power,
-                                color: Color.fromARGB(255, 54, 54, 54),
+                          Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.white),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Icon(
+                                    Icons.wind_power,
+                                    color: Color.fromARGB(255, 54, 54, 54),
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(3.0),
-                            child: Text("Rüzgar Hızı",
-                                style: GoogleFonts.lato(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                )),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(3.0),
-                            child: Text(
-                              "${_weather?.windSpeed.floor()} m/s",
+                          Text("Rüzgar Hızı",
                               style: GoogleFonts.lato(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
                                 color: Color.fromARGB(255, 255, 255, 255),
-                              ),
+                              )),
+                          Text(
+                            "${_weather?.windSpeed.floor()} m/s",
+                            style: GoogleFonts.lato(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 255, 255, 255),
                             ),
                           )
                         ],
                       ),
                     ),
-                  ),
+                  ]),
                 ],
               ),
             )),
