@@ -7,10 +7,10 @@ import '../models/weatherModel.dart';
 
 class WeatherService {
   static const BASE_URL =
-      'http://api.openweathermap.org/data/2.5/weather?lat=38.16&lon=32.5&exclude=hourly,daily';
-  final String apiKey;
+      'http://api.openweathermap.org/data/2.5/weather?lat=37.8713&lon=32.4846&exclude=hourly,daily';
+  final String apiKey = "e4607eb03ccc521911f8c75f7029e69e";
 
-  WeatherService({required this.apiKey});
+  WeatherService({required String apiKey});
 
   Future<Weather> getWeather(String cityName) async {
     final response = await http
